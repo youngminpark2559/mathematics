@@ -1,1 +1,123 @@
-h
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 25px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 80px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:1.6em
+}
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                   displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+002. category of matrix multiplication
+<xmp>
+@
+평면상에서 회전이동을 나타내는 행렬 A
+$A = \begin{bmatrix} \cos{\theta} & -\sin{\theta} \\ \sin{\theta} & \cos{\theta} \end{bmatrix}$
+
+점(x, y) 를 $\theta$ 만큼 회전이동 (default: 반시계방향, 시계방향은 $-\theta$) 하고 싶다. 
+
+회전이동한 점을 (x', y') 라고 하면 그 점을 구하고 싶다. 
+
+그럴때 A를 곱해준다. 그러면 새로운 점 (x', y') 가 나오는 것이다.
+
+$A \cdot \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} \cos{\theta} & -\sin{\theta} \\ \sin{\theta} & \cos{\theta} \end{bmatrix} \cdot \begin{bmatrix} x \\ y \end{bmatrix}$
+$A \cdot \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} x' \\ y' \end{bmatrix} $
+
+
+
+@
+도형의 방정식을 구할때 (ex. 원) 선위에 임의의 점(x, y)를 잡아서 x와 y의 관계식을 구하는데 관계식이 깔끔하면 직교좌표계, 안될때는 극좌표 내지는 매개변수를 이용한다.
+
+@
+$y = x^{2}$ 이라는 그래프가 있을때 이걸 45도 돌렸을때 나오는 곡선의 방정식은 뭐가 될까?
+$\begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{bmatrix} \cdot \begin{bmatrix} x \\ y \end{bmatrix}$
+
+@
+평면상에서 회전이동을 나타내는 행렬 A의 특징:
+$A = \begin{bmatrix} \cos{\theta} & -\sin{\theta} \\ \sin{\theta} & \cos{\theta} \end{bmatrix}$
+$A^{n} = \begin{bmatrix} \cos{n\theta} & -\sin{n\theta} \\ \sin{n\theta} & \cos{n\theta} \end{bmatrix}$
+기하학적 의미를 참고해라.
+
+@
+행렬의 종류.
+	대칭행렬. 정방행렬만 가능. 아니면 정의가 안됨.
+	교대행렬.(사대칭, 유사대칭 )
+	직교행렬.
+	
+@	
+대칭행렬이라고 이름을 붙일수 있느냐?의 조건 :
+$A^{T} = A$ 일때, A를 대칭행렬이라고 한다.
+$a_{ij} = a_{ji}$
+대각의 원소를 중심으로 위와 아래가 같은 배열을 하고 있다. 대각 원소 자체는 아무거나 해도됨.
+
+
+@
+교대행렬 : 
+$A^{T} = -A$ 일때 A를 교대행렬이라고 한다.
+$a_{ij} = -a_{ji}$
+대각의 원소는 모두 0이어야 한다.
+대각의 원소를 중심으로 위와 아래가 부호가 반대인 배열을 갖는다. 
+
+
+@
+모든 정방행렬 A는 대칭행렬과 교대행렬의 합으로 표현 가능하다. 
+$A = \frac{1}{2} ((A+A^{T})+(A-A^{T}))$
+
+$A + A^{T}$ : 대칭행렬.
+$A - A^{T}$ : 교대행렬.
+
+@
+직교행렬.
+공학적으로 중요하다.
+$A = (a_{ij})_{M\times N}$ 일때,
+$A\cdot A^{T} = I$
+일때 A는 직교행렬이다. 
+위의 수식은 역행렬의 정의와도 같다. 
+
+$A^{T} = A^{-1}$
+일때 A는 직교행렬이다.
+
+직교행렬의 예.
+$A = \begin{bmatrix} \cos{\theta} & -\sin{\theta} \\ \sin{\theta} & \cos{\theta} \end{bmatrix}$
+회전이동아닌가? 맞다. 직교행렬은 공학적으로 회전이동과 관련이 있다.
+      </xmp>
+   </BODY>
+</HTML>
