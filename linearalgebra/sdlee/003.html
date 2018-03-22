@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 25px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 80px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:1.6em
+}
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                   displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+003. characteristics of matrix determinent
+<xmp>
+@
+행렬식은 행렬파트에서 가장 중요하다. 
+영어로 determinent 결정론, 결정자 라는 뜻으 로서 행렬파트에서 행렬식 안하면 다른부분을 할수 없다.
+모든걸 행렬식을 가지고 계산한다고 보면 된다. 
+행렬식은 미분방정식, 편미분, 중적분 등에서도 간혹 사용한다. 
+
+@
+$A = (a_(ij))_{n\times n}$ 에 대해서, (정방행렬이 아닐때는 행렬식이 존재하지 않는다.)
+
+A의 행렬식에 대해 고찰해보자. (식이라고 번역하는 이유 : 모양은 행렬의 모양이지만 행렬 안의 원소들이 문자들인데 쭉 계산했을때 식의 모양이 일반적으로 나온다. 공학적으로 이용하는 모양인 식의 모양이 많이 나온다.)
+
+@
+가리키는 문자 (ex. A)와 원소를 감쌀때 (  ) 또는 [  ] 로 감싸면 행렬이다.
+가리키는 문자 (ex. A)와 원소를 감쌀때 |  | 로 감싸면 행렬식이다.
+
+A의 행렬식
+$= |A|$
+$= det(A)$
+$= D(A)$
+
+@
+2*2를 계산하는 가장 빠른 방법은 ad - bc 이다
+$|\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}| = a_{11} a_{22} - a_{12} a_{21}$
+
+@
+3*3를 계산하는 가장 빠른 방법 : Sarrus 정리
+Sarrus 정리의 단점 2가지.
+1. 3*3 이하에서만 가능하다. 
+2. 인수분해 실력이 필요하다. (인수분해 안쓰려면 Laplace 정리를 써야한다.)
+Sarrus 정리 장점 : 행렬식의 이해에 도움된다.
+$|\begin{bmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{bmatrix}| = a_{11} a_{22} - a_{12} a_{21}$
+
+@
+행렬식의 몇가지 성질.
+
+1. $|A| = |A^{T}|$
+ex. $|\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}|$
+
+1. 두개의 행 또는 두개의 열을 바꾸면 행렬식 값은 부호만 바뀐다. 
+ex. $|\begin{bmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \\ 1 & 5 & -1 \end{bmatrix}|$
+
+1. 하나의 행또는 하나의 열 의 공통인수는 행렬식 밖으로 꺼낼수있다. 
+열기준예시.
+$|\begin{bmatrix} 2a & 4b \\ 3a & 5b \end{bmatrix}| = a|\begin{bmatrix} 2 & 4b \\ 3 & 5b \end{bmatrix}|$
+$|\begin{bmatrix} 2a & 4b \\ 3a & 5b \end{bmatrix}| = ab|\begin{bmatrix} 2 & 4 \\ 3 & 5 \end{bmatrix}|$    
+
+1. 행렬 A가 3*3 일때
+$|2A| = 2^{3}|A|$
+
+1. 하나의 행이나 하나의 열의 원소가 전부 0으로 되어있으면 행렬식은 0가 된다. 
+
+1. 두개의 열 또는 두개의 행이 서로 비례관계이면 행렬식값은 0이된다.
+이 성질을 나중에 rank할때 사용한다. 
+ex. 두개의 행이 비례관계인 예시.
+$|\begin{bmatrix} 1&2&3 \\ 1&1&1 \\ 2&4&6 \end{bmatrix}|$
+
+1. 
+행렬식에서 가장 많이 사용되는 성질이다. 
+이것때문에 아무리 큰 행렬식의 모양도 빨리 계산할 수 있다.  
+하나의 행 또는 하나의 열에 실수 k를 곱하여 다른행 또는 다른열에 더하거나 뺴어도 행렬식값은 변하지 않는다. 
+$|\begin{bmatrix} 1&2 \\ 3&4 \end{bmatrix}|$
+
+1.
+$|AB| = |A||B|$
+
+1.
+$|A...A| = |A|...|A|$
+$|A...A| = |A|^{n}$ (시간 단축)
+$|A...A| = |A^n|$ (시간 오래걸림)
+
+1.
+$|A| \neq 0$ and $|B| \neq 0$ 이면
+$|A||B| \neq 0 \neq |AB|$
+
+@
+직교행렬의 행렬식은 항상 +-1이다.
+
+@
+여인수(cofactor): 나머지 여, 인수의 나머지
+$A = \begin{bmatrix} 1&-1&3 \\ 3&5&7 \\ -1&3&5 \end{bmatrix}$
+여인수가 반드시 있다. 안에것들 원소 내지는 인수라 불린다. 
+1의 여인수 : 1이 포함된 행하고 열을 뺀 나머지 인수의 행렬식. 거기에 부호에 유의한다. 1행 1열의 경우 부호는 $(-1)^{(1+1)} = +$ 이다.
+      </xmp>
+   </BODY>
+</HTML>
